@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+		xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx.xsd
+    ">
+    
+    <!-- Use of c schema -->
+    <bean class="com.springcore.constructorinjection.Certificate" name="cer" c:name="CDac Complition Certificate">
+    		<!-- <constructor-arg value="CDac Complition Certificate"/> -->
+    </bean>
+    
+    
+    <bean class="com.springcore.constructorinjection.Person"  name="p1">
+    		<constructor-arg value="Sakshi" />
+    		<constructor-arg value="115" type="int"/>
+    		<constructor-arg  ref="cer"/>
+    		<constructor-arg>
+    				<list>
+    						<value>Java</value>
+    						<value>Python</value>
+    						<value>C# .net </value>
+    				</list>
+    		</constructor-arg>
+    </bean>
+    
+    <bean class="com.springcore.constructorinjection.Addition" name="add">
+    	<constructor-arg value="10" type="int"/>
+    	<constructor-arg value="12" type="int"/>
+    </bean>
+    
+</beans>
+
+

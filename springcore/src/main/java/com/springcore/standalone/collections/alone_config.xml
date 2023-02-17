@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx.xsd
+    http://www.springframework.org/schema/util
+    http://www.springframework.org/schema/util/spring-util.xsd
+    ">
+    
+    <!-- standalones using util schema -->
+    
+    <util:list list-class="java.util.LinkedList" id="mybestfriends">
+    		<value>Akanksha</value>
+    		<value>Nisha</value>
+    		<value>Sakshi</value>
+    		<value>Vedika</value>
+    </util:list>
+    
+    <util:map map-class="java.util.HashMap" id="fees">
+    		<entry key="java" value="2500" />
+    		<entry key="python" value="3500" />
+    		<entry key="springboot" value="1500" />
+    </util:map>
+    
+    <util:properties id="creds">
+    		<prop key="username">Vedantp</prop>
+    		<prop key="password">Egov$1234</prop>
+    </util:properties>
+    
+    <bean class="com.springcore.standalone.collections.Person" name="person1">
+    
+    	<!-- 	<property name="friends">
+    				<ref bean="mybestfriends"/>
+    		</property> -->
+    		
+    	<property name="friends" ref="mybestfriends" />
+    	<property name="feestructure" ref="fees" />
+    	<property name="props" ref="creds" />
+    </bean>
+    
+</beans>
+
+
