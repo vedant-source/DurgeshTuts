@@ -1,9 +1,13 @@
 package com.spring.jdbc;
 
+import java.util.List;
+
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import com.spring.dao.StudentDao;
 import com.spring.dao.StudentDaoImpl;
 import com.spring.dto.Student;
 
@@ -16,7 +20,8 @@ public class App
     public static void main( String[] args )
     {
         System.out.println( "Program Started...!!!" );
-        ApplicationContext context = new ClassPathXmlApplicationContext("com/spring/jdbc/config.xml");
+        ApplicationContext context = new AnnotationConfigApplicationContext(JdbcConfig.class);
+        
         StudentDaoImpl sd = context.getBean("studentDaoImpl",StudentDaoImpl.class);
         
         //Inserted record and then commented
@@ -33,9 +38,16 @@ public class App
 //        ss.setCity("Beed");
 //         sd.update(ss);
         
-        Student sss = new Student();
-        sss.setId(8);
-        sd.deleteById(sss);
+//        Student sss = new Student();
+//        sss.setId(8);
+//        sd.deleteById(sss);
+//   
+ 
+// 		System.out.println(sd.getStudentById(8));
    
+        List< Student> students =   sd.getAllStudents();
+        for (Student student : students) {
+			System.out.println(student);
+		}
     }
 }
