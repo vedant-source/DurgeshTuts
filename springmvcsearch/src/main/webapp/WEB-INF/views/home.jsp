@@ -15,7 +15,7 @@
 	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
 	crossorigin="anonymous">
 
-<link href="<c:url value="/resources/css/style.css" />"> 
+<link href="<c:url value="/resources/css/style.css" />">
 
 <script src="<c:url value="/resources/js/script.js"  />"></script>
 
@@ -26,7 +26,7 @@
 	;
 
 body {
-	background-color: bisque;
+	background-color: white;
 	font-family: "Poppins", sans-serif;
 	font-weight: 300;
 }
@@ -83,26 +83,28 @@ body {
 			class="row height d-flex justify-content-center align-items-center">
 
 			<img
-				style="height: 47%; margin-bottom: -25%; width: 67%; margin-top: -70px;"
+				style="height: 28%; margin-bottom: -25%; width: 67%; margin-top: -70px;margin-right: 3%;"
 				src="<c:url value="/resources/image/digiBharat.jpg" />" />
 
 
-			<div class="col-md-8">
-				<h2 style="text-align: center">OK GOOGLE</h2>
-				<form action="search">
+			<!-- 	<div class="col-md-8">
+				<h2 style="text-align: center">OK GOOGLE</h2> -->
 
-					<div class="search">
-						<i class="fa fa-search"></i> <input type="text" name="querybox"
-							class="form-control" placeholder="Search for URL? Ask Now">
+			<form action="search">
 
-						<button class="btn btn-primary">Search</button>
+				<div class="search"
+					style="width: 67%; margin-left: 16.5%; margin-top: -15%;">
+					<i class="fa fa-search"></i> <input type="text" name="querybox"
+						class="form-control" placeholder="Search for URL? Ask Now">
 
-					</div>
+					<button class="btn btn-primary">Search</button>
 
-				</form>
-			</div>
+				</div>
 
+			</form>
 		</div>
+
+	</div>
 	</div>
 
 

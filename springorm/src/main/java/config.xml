@@ -12,6 +12,7 @@
     http://www.springframework.org/schema/tx/spring-tx.xsd
     ">
    <tx:annotation-driven/>
+ <!--   data-source -->
    <bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" name="ds">
    					<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
    					<property name="url" value="jdbc:mysql://localhost:3306/spring_jdbc"></property>
