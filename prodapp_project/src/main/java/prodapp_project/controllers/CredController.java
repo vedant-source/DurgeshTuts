@@ -34,30 +34,39 @@ public class CredController {
 		System.out.println("processSignUpForm handler Worked");
 		// System.out.println(user);
 		signUpDao.saveCreds(user);
-		System.out.println("Record fetched via /processSignUpForm --------" );
+		System.out.println("Record fetched via /processSignUpForm --------");
 		return "login";
 	}
 
-	@RequestMapping("/logInCreds")
-	public String logInCreds(@RequestParam("email") String email, @RequestParam("password") String pass,Model model) {
+	@RequestMapping(path = "/logInCreds", method = RequestMethod.POST)
+	public String logInCreds(@RequestParam("email") String email, @RequestParam("password") String pass, Model model) throws Exception {
 		System.out.println("/logInCreds handler worked...!!!");
 		System.out.println("/logInCreds ----  " + email + " : " + pass);
-		//String err="";
+		// String err="";
+		
+		//validtion checking null
+		if(email == null || pass == null) {
+			throw new Exception("please enter correct credentials");
+		}
+		
+		
 		SignUp record = signUpDao.getSingleRecord(email);
 
 		System.out.println("Record fetched via Dao layer --------" + record);
-		
+
 		try {
-			if (email.equals(record.getEmail()) && pass.equals(record.getPassword())) {
-				
+			if (email.equals(record.getEmail()) && pass.equals(record.getPassword()))
+
 				return "redirect:/home";
-			}
+
+			else
+				throw new RuntimeException("Invalid Credentials");
 		} catch (Exception e) {
 			model.addAttribute("errmsg", "Invalid Credentials");
 			return "login";
 		}
 
-		return "";
+		// return "";
 	}
 
 	@RequestMapping("/forgotpassword")
@@ -65,7 +74,6 @@ public class CredController {
 		return "forgotpassword";
 	}
 
-	
 	@RequestMapping("/verifyEmail")
 	public String verifyEmailFromForgotPasswordPage(@RequestParam("email") String email, Model model) {
 
